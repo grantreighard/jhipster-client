@@ -14,8 +14,8 @@ export default class IndividualGreeting extends React.Component {
     }
 
     componentDidMount = () => {
-        const {id} = this.props.match.params;
-
+        let {id} = this.props.match.params;
+ 
         axios
         .post('http://localhost:8080/api/authenticate', {
             'password': 'admin',
@@ -29,7 +29,7 @@ export default class IndividualGreeting extends React.Component {
                 }
             };
             axios
-                .get(`http://localhost:8080/services/microservice/api/say-hello-worlds/${id}`, headers)
+                .get(`http://localhost:8080/services/microservice/api/sayhelloworlds/${id}`, headers)
                 .then(res => {
                     this.setState({ salutation: res.data.salutation, firstName: res.data.firstName, lastName: res.data.lastName, id: id });
                 });
@@ -56,7 +56,7 @@ export default class IndividualGreeting extends React.Component {
                     }
                 };
                 axios
-                    .put(`http://localhost:8080/services/microservice/api/say-hello-worlds/`, this.state, headers)
+                    .put(`http://localhost:8080/services/microservice/api/sayhelloworlds/`, this.state, headers)
                     .then(res => {
                         this.setState({ salutation: res.data.salutation, firstName: res.data.firstName, lastName: res.data.lastName });
                     });
@@ -80,7 +80,7 @@ export default class IndividualGreeting extends React.Component {
                     }
                 };
                 axios
-                    .delete(`http://localhost:8080/services/microservice/api/say-hello-worlds/${id}`, headers)
+                    .delete(`http://localhost:8080/services/microservice/api/sayhelloworlds/${id}`, headers)
                     .then(res => {
                         this.props.history.push("/listAll")
                     });

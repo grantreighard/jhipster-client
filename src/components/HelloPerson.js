@@ -37,7 +37,7 @@ export default class HelloPerson extends React.Component {
                 }
             };
             axios
-            .get(`http://localhost:8080/services/microservice/api/_search/say-hello-worlds?query=${this.state.search}`, headers)
+            .get(`http://localhost:8080/services/microservice/api/_search/sayhelloworlds?query=${this.state.search}`, headers)
             .then(res => {
                 console.log(res.data);
                 if (res.data.length) {

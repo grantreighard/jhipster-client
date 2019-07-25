@@ -32,7 +32,7 @@ export default class AddNew extends React.Component {
                     }
                 };
                 axios
-                    .post(`http://localhost:8080/services/microservice/api/say-hello-worlds/`, this.state, headers)
+                    .post(`http://localhost:8080/services/microservice/api/sayhelloworlds/`, this.state, headers)
                     .then(res => {
                         this.setState({ salutation: res.data.salutation, firstName: res.data.firstName, lastName: res.data.lastName });
                     });

@@ -29,7 +29,7 @@ export default class App extends React.Component {
                 }
             };
             axios
-                .get('http://localhost:8080/services/microservice/api/say-hello-worlds', headers)
+                .get('http://localhost:8080/services/microservice/api/sayhelloworlds', headers)
                 .then(res => {
                     this.setState({ people: res.data });
                 });
